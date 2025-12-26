@@ -5,17 +5,23 @@ export function Footer() {
   return (
     <footer
       className={clsx(
-        'text-4xl/normal font-extrabold py-8',
-        'sm:text-5xl/normal sm:py-10',
-        'md:text-6xl/normal sm:py-12',
-        'lg:text-7xl/normal sm:py-12',
+        'text-1xl/normal font-extrabold py-8',
+        'sm:text-3xl/normal sm:py-10',
+        'md:text-4xl/normal sm:py-12',
         'pb-16',
         'text-center'
       )}
     >
       <p>
         <span>
-          <Link href="/">Sobre &rarr;</Link>{' '}
+          <Link
+            className="target:_"
+            href="https://daniel.riegos.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            &rarr; Daniel Riêgo Portfólio &larr;{' '}
+          </Link>{' '}
         </span>{' '}
         {new Date().getFullYear()}
       </p>
