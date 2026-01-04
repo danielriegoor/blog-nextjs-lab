@@ -1,10 +1,12 @@
+'use client';
+
+import clsx from 'clsx';
+
 type ErrorMessageProps = {
   pageTitle: string;
   contentTitle: string;
   content: React.ReactNode;
 };
-
-import clsx from 'clsx';
 
 export default function ErrorMessage({
   pageTitle,

@@ -1,7 +1,7 @@
-import { PostCoverImage } from '../PostCoverImage';
+import { PostCoverImage } from "../PostCoverImage";
 
-import { PostSumary } from '../PostSummary';
-import { findAllPublicPostsCached } from '@/lib/post/queries';
+import { PostSumary } from "../PostSummary";
+import { findAllPublicPostsCached } from "@/lib/post/queries";
 
 export async function PostFeatured() {
   const posts = await findAllPublicPostsCached();
