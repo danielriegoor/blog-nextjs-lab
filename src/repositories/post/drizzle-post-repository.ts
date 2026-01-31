@@ -1,10 +1,14 @@
 import { PostModel } from "@/models/post/post-model";
 import { PostRepository } from "./post-repository";
 import { drizzleDb } from "@/db/drizzle";
+import { logColor } from "@/utils/log-color";
+import { asyncDelay } from "@/utils/async-delay";
+import { SIMULATE_WAIT_IN_MS } from "@/lib/constants";
 
 export class DrizzlePostRepository implements PostRepository {
   async findAllPublic(): Promise<PostModel[]> {
-    // console.log("\n", "D findAllPublic", "\n");
+    await asyncDelay(SIMULATE_WAIT_IN_MS, true); // simula delay na resposta para ambiente de desenvolvimento
+    logColor("findAllPublic", Date.now().toString());
 
     const posts = await drizzleDb.query.posts.findMany({
       orderBy: (posts, { desc }) => desc(posts.createdAt),
@@ -15,7 +19,8 @@ export class DrizzlePostRepository implements PostRepository {
   }
 
   async findBySlugPublic(slug: string): Promise<PostModel> {
-    // console.log("\n", "D findBySlugPublic", "\n");
+    await asyncDelay(SIMULATE_WAIT_IN_MS, true);
+    logColor("findBySlugPublic", Date.now().toString());
     const post = await drizzleDb.query.posts.findFirst({
       where: (posts, { eq, and }) =>
         and(eq(posts.published, true), eq(posts.slug, slug)),
@@ -27,7 +32,8 @@ export class DrizzlePostRepository implements PostRepository {
   }
 
   async findAll(): Promise<PostModel[]> {
-    // console.log("\n", "D findAll", "\n");
+    await asyncDelay(SIMULATE_WAIT_IN_MS, true);
+    logColor("findAll", Date.now().toString());
     const posts = await drizzleDb.query.posts.findMany({
       orderBy: (posts, { desc }) => desc(posts.createdAt),
     });
@@ -36,7 +42,8 @@ export class DrizzlePostRepository implements PostRepository {
   }
 
   async findById(id: string): Promise<PostModel> {
-    // console.log("\n", "D findById", "\n");
+    await asyncDelay(SIMULATE_WAIT_IN_MS, true);
+    logColor("findById", Date.now().toString());
     const post = await drizzleDb.query.posts.findFirst({
       where: (posts, { eq }) => eq(posts.id, id),
     });

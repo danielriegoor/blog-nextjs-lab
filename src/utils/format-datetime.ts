@@ -1,8 +1,9 @@
 import {
   format,
   formatDistanceToNow as dateFnsformatDistanceToNow,
-} from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+} from "date-fns";
+import { ptBR } from "date-fns/locale";
+// import { cacheLife, cacheTag } from "next/cache";
 
 export function formatDatetime(rawDate: string): string {
   const date = new Date(rawDate);
@@ -21,7 +22,17 @@ export function formatDistanceToNow(rawDate: string): string {
   });
 }
 
-const rawDate = '2025-12-26T17:32:21.316Z';
-console.log(rawDate);
+export function formatHour(timeStamp: number): string {
+  const date = new Date(timeStamp);
 
-console.log(formatDistanceToNow(rawDate));
+  return format(date, "HH:mm:ss", {
+    locale: ptBR,
+  });
+}
+
+// export async function formatHourCached() {
+//   "use cache";
+//   cacheLife("seconds");
+//   cacheTag("formatHourCached");
+//   return formatHour(Date.now());
+// }

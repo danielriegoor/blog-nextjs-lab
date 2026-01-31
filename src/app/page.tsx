@@ -1,8 +1,9 @@
-import { PostFeatured } from '@/components/PostFeatured';
-import { PostsList } from '@/components/PostsList';
+import { PostFeatured } from "@/components/PostFeatured";
+import { PostsList } from "@/components/PostsList";
+import { SpinLoader } from "@/components/SpinLoader";
+import { Suspense } from "react";
 
-import { SpinLoader } from '@/components/SpinLoader';
-import { Suspense } from 'react';
+export const dynamic = "force-static";
 
 export default async function HomePage() {
   return (
@@ -14,4 +15,3 @@ export default async function HomePage() {
     </>
   );
 }
-// Commit

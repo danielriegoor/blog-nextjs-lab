@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { Container } from '@/components/Container';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import { Container } from "@/components/Container";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Blog com NextJS',
-    template: '%s | BLOGÃO COM NEXTJS',
+    default: "Blog NextJS - Riêgo's Labs",
+    template: "%s | Blog NextJS - Riêgo's Labs",
   },
-  description: 'Descrição do blog',
+  description: "Descrição do blog",
 };
 
 type RootLayoutProps = {
